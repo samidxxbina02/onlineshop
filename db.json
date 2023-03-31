@@ -1,0 +1,115 @@
+{
+  "products": [
+    {
+      "description": "qwe",
+      "title": "asd",
+      "img": "",
+      "price": "234",
+      "likes": 1456,
+      "comments": [],
+      "id": 1
+    },
+    {
+      "description": "qwe",
+      "title": "asd",
+      "img": "",
+      "price": "234",
+      "likes": 1456,
+      "comments": [],
+      "id": 2
+    },
+    {
+      "description": "qwe",
+      "title": "asd",
+      "img": "asd",
+      "price": "",
+      "likes": 0,
+      "comments": [],
+      "id": 3
+    },
+    {
+      "description": "qwe",
+      "title": "asd",
+      "img": "",
+      "price": "234",
+      "likes": 1456,
+      "comments": [],
+      "id": 4
+    },
+    {
+      "description": "qwe",
+      "title": "asd",
+      "img": "",
+      "price": "234",
+      "likes": 1456,
+      "comments": [],
+      "id": 5
+    },
+    {
+      "description": "qwe",
+      "title": "asd",
+      "img": "asd",
+      "price": "",
+      "likes": 0,
+      "comments": [],
+      "id": 6
+    },
+    {
+      "description": "qwe",
+      "title": "asd",
+      "img": "",
+      "price": "234",
+      "likes": 1456,
+      "comments": [],
+      "id": 7
+    },
+    {
+      "description": "qwe",
+      "title": "asd",
+      "img": "",
+      "price": "234",
+      "likes": 1456,
+      "comments": [],
+      "id": 8
+    },
+    {
+      "description": "qwe",
+      "title": "asd",
+      "img": "asd",
+      "price": "",
+      "likes": 0,
+      "comments": [],
+      "id": 9
+    },
+    {
+      "description": "Details: Material: Polyester SIZE(IN) Bust Waist Hip Length S 33.1 26.0 35.0 54.3 M 35.0 28.0 37.0 54.7 L 36.6 29.9 39.0 55.1 XL 38.6 31.9 40.9 55.5",
+      "title": "Minimalism Wide Leg Slip Jumpsuits",
+      "img": "https://i.pinimg.com/236x/1b/5a/a8/1b5aa8c9bdefde62c240b9e24c3dd8cc.jpg",
+      "price": "2000",
+      "likes": 0,
+      "comments": [],
+      "id": 10
+    },
+    {
+      "description": "dfgbhjmk,.l;/",
+      "title": "fvgbhnj,k.l;",
+      "img": "https://i.pinimg.com/564x/a0/c2/ab/a0c2abae0a3ead937257907e8325e12d.jpg",
+      "price": "1500",
+      "likes": 0,
+      "comments": [],
+      "id": 11
+    }
+  ],
+  "users": [
+    {
+      "email": "samidinova122002@gmail.com",
+      "password": "$2a$10$uXfVyhMgft/H7EhMu8/kXe.XIcBOI3zaCoZBa90LWAdM.hvaCKj7S",
+      "id": 1
+    },
+    {
+      "email": "samidiova122002@gmail.com",
+      "password": "$2a$10$HoE3APthrxMHfOAQDdRSH.hjYobCpkGdSaHO9IBeBb3uXoaKz2d6W",
+      "id": 2
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Sofia&display=swap");
+
+.logo {
+  font-family: "Comfortaa", cursive;
+  font-weight: 700;
+  color: aliceblue;
+  font-size: 30px;
+}
