@@ -32,7 +32,7 @@ export const StyledHeader = {
     display: flex;
     color: white;
     justify-content: center;
-    font-style: oblique;
+    font-family: 'Comfortaa', cursive;
   `,
   NavItem: styled(Link)`
     color: white;

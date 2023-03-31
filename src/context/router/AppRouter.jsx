@@ -9,6 +9,7 @@ import MainPage from "../../pages/MainPage/MainPage";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import ProductDetailsPage from "../../pages/ProductDetailsPage/ProductDetailsPage";
 import AuthPage from "../../pages/AuthPage/AuthPage";
+import ContactUs from "../../pages/ContactUs/ContactUs";
 
 function AppRouter() {
   return (
@@ -17,12 +18,13 @@ function AppRouter() {
         <Route path="/" element={<MainPage />} />
       </Route>
       <Route element={<WithoutSidebarLayout />}>
-        <Route path="/admin" element={<AdminPage />}/>
-        <Route path="/product/:id" element={<ProductDetailsPage />}/>
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/product/:id" element={<ProductDetailsPage />} />
       </Route>
       <Route element={<OnlyHeaderLayout />}>
         <Route path="/*" element={<NotFoundPage />} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="/contacts" element={<ContactUs />} />
       </Route>
     </Routes>
   );
