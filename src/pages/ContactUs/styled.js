@@ -22,4 +22,5 @@ export const StyledContacts = {
   `,
   Icon: styled.li``,
   IconLink: styled.a``,
+  
 };

@@ -22,6 +22,7 @@ export const DropdownOptions = styled.div`
 
 export const DropdownLinkOption = styled(Link)`
   cursor: pointer;
+  width: 3rem;
   padding: 5px;
   &:hover {
     background-color: #eee;

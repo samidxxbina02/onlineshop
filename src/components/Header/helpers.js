@@ -2,8 +2,6 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 
-import SearchIcon from '@mui/icons-material/Search';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const leftSideIconsData = [
   {
@@ -18,17 +16,6 @@ const leftSideIconsData = [
     as: <YouTubeIcon sx={{ color: 'white' }} fontSize='large'/>,
     href: "https://www.youtube.com/",
   },
-];
-
-const rightSideIconsData = [
-    {
-        as:<SearchIcon sx={{ color: 'white' }} fontSize='large'/>,
-        onClick: ()=> console.log('search')
-    },
-    {
-        as:<ShoppingCartIcon sx={{ color: 'white' }} fontSize='large'/>,
-        href:'/cart'
-    }
 ];
 
 const navigationData = [
@@ -54,6 +41,5 @@ const navigationData = [
 
 export {
     leftSideIconsData,
-    rightSideIconsData,
     navigationData
 }

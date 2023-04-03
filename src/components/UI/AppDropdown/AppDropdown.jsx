@@ -17,20 +17,27 @@ const AppDropdown = ({ options, icon }) => {
     setIsOpen(!isOpen);
   };
 
+
+  const handleItemClick = (event, option) => {
+    event.stopPropagation()
+    event.preventDefault()
+    option.onClick && option.onClick()
+  }
+
   return (
     <DropdownWrapper>
       <DropdownIcon onClick={toggleDropdown}>{icon}</DropdownIcon>
       {isOpen && (
         <DropdownOptions>
-          {options.map((option) => {
+          {options.map((option, idx) => {
             return option.href ? (
-              <DropdownLinkOption key={option} to={option.href}>
+              <DropdownLinkOption key={option.label} to={option.href}>
                 {option.label}
               </DropdownLinkOption>
-            ) : (
+            ) : (   
               <DropdownOption
-                key={option}
-                onClick={option.onClick && option.onClick()}
+                key={option.label}
+                onClick={(event) => handleItemClick(event, option)}
               >
                 {option.label}
               </DropdownOption>

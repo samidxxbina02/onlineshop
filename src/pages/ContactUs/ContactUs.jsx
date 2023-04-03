@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyledContacts } from './styled'
 import icons from './helpers'
+import Footer from '../../components/Footer'
 
 export default function ContactUs() {
   return (
@@ -22,6 +23,8 @@ export default function ContactUs() {
 
      </StyledContacts.IconsWrapper>
     </StyledContacts.Container>
+
+    
   )
   
 }

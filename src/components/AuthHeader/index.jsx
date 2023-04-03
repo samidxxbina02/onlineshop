@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AppDropdown from "../UI/AppDropdown/AppDropdown";
-
-const authHeaderPopupList = [
-    {
-        href: '/auth',
-        label: 'Login',
-    }
-]
+import { StoreContext } from "../../context/store/StoreContext";
 
 const AuthHeader = () => {
+
+  const authHeaderPopupList = [
+    {
+      href: "/auth",
+      label: "Login",
+    }
+  ];
+
   return (
     <li>
       <AppDropdown
