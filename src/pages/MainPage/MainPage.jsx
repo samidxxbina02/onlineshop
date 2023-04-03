@@ -7,13 +7,13 @@ import { StyledMainPage } from "./styled";
 const MainPage = () => {
   return (
     <StyledMainPage.Container>
-      <StyledMainPage.SliderContainer>
-        <Slider />
-      </StyledMainPage.SliderContainer>
       <StyledMainPage.ProductListContainer>
         <ProductList />
       </StyledMainPage.ProductListContainer>
       <ProductsPagination />
+      <StyledMainPage.SliderContainer>
+        <Slider />
+      </StyledMainPage.SliderContainer>
     </StyledMainPage.Container>
   );
 };

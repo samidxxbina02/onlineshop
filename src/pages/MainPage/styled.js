@@ -9,6 +9,9 @@ export const StyledMainPage = {
     margin-bottom: 4rem;
   `,
   SliderContainer: styled.div`
+  margin-top: 4rem;
+  width: 100%;
+  max-width: 100%;
   `,
   ProductListContainer: styled.div`
     

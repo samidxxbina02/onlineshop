@@ -1,34 +1,20 @@
-import * as React from "react";
+import  React, {useContext}  from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
-import Avatar from "@mui/joy/Avatar";
 import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
 import CardOverflow from "@mui/joy/CardOverflow";
 import Link from "@mui/joy/Link";
 import IconButton from "@mui/joy/IconButton";
-import Input from "@mui/joy/Input";
 import Typography from "@mui/joy/Typography";
 import MoreHoriz from "@mui/icons-material/MoreHoriz";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import ModeCommentOutlined from "@mui/icons-material/ModeCommentOutlined";
-import SendOutlined from "@mui/icons-material/SendOutlined";
 import Face from "@mui/icons-material/Face";
-import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
 import AppDropdown from "../UI/AppDropdown/AppDropdown";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AppButton from "../UI/AppButton/AppButton";
 import AppInput from "../UI/AppInput/AppInput";
-
-const productCardActionPopupList = [
-  {
-    onClick: () => console.log("Edit"),
-    label: "Edit",
-  },
-  {
-    onClick: () => console.log("Delete"),
-    label: "Delete",
-  },
-];
+import { StoreContext } from "../../context/store/StoreContext";
 
 export default function ProductCard(props) {
   const {
@@ -38,7 +24,23 @@ export default function ProductCard(props) {
     price = "1",
     likes = 0,
     comments,
+    id,
+    
   } = props;
+
+  const {deleteProduct} = useContext(StoreContext)
+
+
+  const productCardActionPopupList = [
+    {
+      onClick: () => console.log('edit'),
+      label: "Edit",
+    },
+    {
+      onClick: () => deleteProduct(id),
+      label: "Delete",
+    },
+  ];
 
   return (
     <Card
@@ -93,7 +95,7 @@ export default function ProductCard(props) {
         ></Box>
         <Box sx={{ width: 0, display: "flex", flexDirection: "row-reverse" }}>
           <IconButton variant="plain" color="neutral" size="sm">
-            <ShoppingCartIcon sx={{ color: "black" }} />
+            <ShoppingCartIcon  sx={{ color: "black" }} />
           </IconButton>
         </Box>
       </Box>

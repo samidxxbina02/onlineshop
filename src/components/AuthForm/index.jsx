@@ -11,28 +11,30 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { StoreContext } from "../../context/store/StoreContext";
 
-import { useNavigate } from "react-router-dom";
-
 const AuthForm = () => {
-  const { registerUser } = useContext(StoreContext);
-  const navigate = useNavigate();
+  const [hasAccount, setHasAccount] = useState(false)
+  const { registerUser, loginUser } = useContext(StoreContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [hasAccount, setHasAccount] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    const registeringUser = {
+    const userData = {
       email: data.get("email"),
       password: data.get("password"),
     };
 
-    registerUser(registeringUser)
+    if(hasAccount) {
+      loginUser(userData)
+    } else {
+      registerUser(userData)
+    }
+
+    setEmail('')
+    setPassword('')
   };
 
   return (
@@ -50,7 +52,10 @@ const AuthForm = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Register
+          {
+            hasAccount ? 'Login' : 'Register'
+          }
+          
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -64,7 +69,6 @@ const AuthForm = () => {
             autoFocus
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            helperText={emailError}
           />
           <TextField
             margin="normal"
@@ -77,7 +81,6 @@ const AuthForm = () => {
             autoComplete="current-password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            helperText={passwordError}
           />
 
           {hasAccount ? (
@@ -103,18 +106,13 @@ const AuthForm = () => {
           )}
 
           <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
             <Grid item>
               {hasAccount ? (
-                <Link href="#" variant="body2" onClick={() => console.log(123)}>
+                <Link href="#" variant="body2" onClick={() => setHasAccount(false)}>
                   {"Don't have an account? Register Now"}
                 </Link>
               ) : (
-                <Link href="#" variant="body2" onClick={() => console.log(123)}>
+                <Link href="#" variant="body2" onClick={() => setHasAccount(true)}>
                   {"Already have an account? Log In"}
                 </Link>
               )}

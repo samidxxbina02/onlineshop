@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./Slider.css";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { StyledSlider } from "./styled";
 
 const images = [
-  "https://i.pinimg.com/564x/36/67/5a/36675a16ef5d6452ec45128d75fcaacf.jpg",
+  "https://i.pinimg.com/564x/ea/b6/7e/eab67ece9097b07905ec4185292748c2.jpg",
   "https://i.pinimg.com/564x/ac/ed/e5/acede541a54bbeb919616cee9e08a90a.jpg",
   "https://i.pinimg.com/564x/65/ec/4e/65ec4e96ae4ace71f6c1a5be7bb8facb.jpg",
   "https://i.pinimg.com/564x/65/ec/4e/65ec4e96ae4ace71f6c1a5be7bb8facb.jpg",
@@ -23,11 +23,15 @@ const Slider = () => {
   };
 
   return (
-    <div className="container">
-      <button className="btn" onClick={handlePrev}><ArrowBackIosIcon/></button>
+    <StyledSlider.Wrapper>
+      <StyledSlider.Btn onClick={handlePrev}>
+        <ArrowBackIosIcon />
+      </StyledSlider.Btn>
       <img src={images[index]} alt={`Slide ${index}`} />
-      <button className="btn" onClick={handleNext}><ArrowForwardIosIcon/></button>
-    </div>
+      <StyledSlider.Btn onClick={handleNext}>
+        <ArrowForwardIosIcon />
+      </StyledSlider.Btn>
+    </StyledSlider.Wrapper>
   );
 };
 

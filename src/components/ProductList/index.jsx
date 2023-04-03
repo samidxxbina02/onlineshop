@@ -36,6 +36,7 @@ const ProductList = () => {
               img={img}
               price={price}
               likes={likes}
+              id={id}
             />
           );
         })

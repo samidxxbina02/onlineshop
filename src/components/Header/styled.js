@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const StyledHeader = {
   Container: styled.div`
     background-color: black;
-    height: 130px;
+    height: 150px;
   `,
   LeftSideWrapper: styled.ul`
     display: flex;
@@ -25,6 +25,7 @@ export const StyledHeader = {
     color: white; ;
   `,
   RightSideWrapper: styled.ul`
+    position: relative;
     display: flex;
     gap: 1.5rem;
   `,
@@ -33,15 +34,16 @@ export const StyledHeader = {
     color: white;
     justify-content: center;
     font-family: 'Comfortaa', cursive;
+    
   `,
   NavItem: styled(Link)`
     color: white;
-    padding: 0 1rem;
+    margin: 0 1rem;
+    
 
     :hover {
       color: white;
-      border-bottom: 1px solid white;
-      padding-bottom: 12px;
+      border-bottom: 0.5px solid white;
     }
   `,
   Line: styled.hr.attrs({

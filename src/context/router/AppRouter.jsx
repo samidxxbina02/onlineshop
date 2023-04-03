@@ -20,11 +20,12 @@ function AppRouter() {
       <Route element={<WithoutSidebarLayout />}>
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/product/:id" element={<ProductDetailsPage />} />
+        <Route path="/contacts" element={<ContactUs />} />
       </Route>
       <Route element={<OnlyHeaderLayout />}>
         <Route path="/*" element={<NotFoundPage />} />
         <Route path="/auth" element={<AuthPage />} />
-        <Route path="/contacts" element={<ContactUs />} />
+      
       </Route>
     </Routes>
   );
