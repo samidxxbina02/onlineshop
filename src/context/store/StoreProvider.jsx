@@ -3,7 +3,7 @@ import React, { useReducer } from "react";
 import { StoreContext } from "./StoreContext";
 import { useProductsRequests } from "./reducers/productsReducer/reducer";
 
-import productsReducer from './reducers/productsReducer/reducer'
+import productsReducer from "./reducers/productsReducer/reducer";
 
 import { initialState } from "./initialState";
 
@@ -13,9 +13,15 @@ const StoreProvider = ({ children }) => {
     initialState
   );
 
-  const { getProductsRequest, userHandleLikeProductRequest, createProduct, deleteProduct, getProductsByIdRequest, editProduct } =
-    useProductsRequests(productsDispatch);
-
+  const {
+    getProductsRequest,
+    userHandleLikeProductRequest,
+    createProduct,
+    deleteProduct,
+    getProductsByIdRequest,
+    editProduct,
+    addCommentInProduct,
+  } = useProductsRequests(productsDispatch);
 
   const productsValue = {
     getProductsRequest,
@@ -24,19 +30,19 @@ const StoreProvider = ({ children }) => {
     getProductsByIdRequest,
     editProduct,
     userHandleLikeProductRequest,
+    addCommentInProduct,
     productsPending: productsState.products.pending,
     productsError: productsState.products.error,
     products: productsState.products.data,
     productsTotalCount: productsState.products.totalCount,
     createPending: productsState.products.createPending,
     editedProduct: productsState.products.editedProduct,
+    currentProduct: productsState.products.currentProduct,
   };
-
 
   const defaultValue = {
     ...productsValue,
   };
-
 
   // console.log(productsState.products.data)
 

@@ -5,6 +5,7 @@ export const initialState = {
       error: null,
       createPending: false,
       totalCount: 0,
-      editedProduct: {}
+      editedProduct: {},
+      currentProduct: {}
     }
   };

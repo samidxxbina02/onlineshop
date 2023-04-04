@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
@@ -20,15 +20,18 @@ import { StoreContext } from "../../context/store/StoreContext";
 import { AuthContext } from "../../context/auth/AuthContext";
 import { UserImportantListContext } from "../../context/userImportantList/UserImportantListContext";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const ProductCard = ({ product, userIsLike }) => {
   const navigate = useNavigate()
   const { isAuth, toggleToUserLikeProduct } = useContext(AuthContext);
-  const { deleteProduct, userHandleLikeProductRequest } = useContext(StoreContext);
+  const { deleteProduct, userHandleLikeProductRequest, addCommentInProduct } = useContext(StoreContext);
   const { addToUserImportantList, deleteToUserImportantList } = useContext(
     UserImportantListContext
   );
   const { pathname } = useLocation();
+
+  const [commentText, setCommentText] = useState('')
 
   const isShoppingCartPage = pathname == "/shoppingCart";
   const user = JSON.parse(localStorage.getItem("user")) || {};
@@ -77,6 +80,29 @@ export const ProductCard = ({ product, userIsLike }) => {
     toggleToUserLikeProduct(user?.id, product.id, true)
   }
 
+  const handleToProductInfo = () => {
+    navigate(`/product-info/${id}`)
+  }
+
+  const handleComment = () => {
+    if(!commentText.trim()) {
+      toast.error('Нельзя добавить пустой комментарий')
+      return
+    }
+
+    const date = new Date()
+
+    addCommentInProduct(id, comments, { user, comment: commentText, date: `${date.getDate()}.${String(date.getMonth() + 1).padStart(2, "0")}.${date.getFullYear()}` }, () => {
+      setCommentText('')
+    })
+  }
+
+  const changeCommentText = (event) => {
+    const { value } = event.target
+
+    setCommentText(value)
+  }
+
   return (
     <Card
       variant="outlined"
@@ -105,8 +131,10 @@ export const ProductCard = ({ product, userIsLike }) => {
       <CardOverflow sx={{ mb: 1 }}>
         <AspectRatio>
           <img
+          onClick={handleToProductInfo}
             style={{
               height: "500px",
+              cursor: 'pointer'
             }}
             src={
               img ||
@@ -174,12 +202,13 @@ export const ProductCard = ({ product, userIsLike }) => {
             variant="plain"
             type="text"
             name="comment"
+            value={commentText}
             sx={{ flexGrow: 1, mr: 1, "--Input-focusedThickness": "0px" }}
-            onChange={(event) => console.log(event.target.value)}
+            onChange={changeCommentText}
           />
           <AppButton
             title="Post"
-            onClick={() => console.log("CLICK COMMENT POST")}
+            onClick={handleComment}
             color="neutral"
           />
         </CardOverflow>

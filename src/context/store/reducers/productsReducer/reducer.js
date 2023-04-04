@@ -10,6 +10,7 @@ import {
   implementSuccessWithAction,
 } from "../../helpers";
 import { useSearchParams } from "react-router-dom";
+import { async } from "q";
 
 const { PRODUCTS } = API;
 const {
@@ -27,6 +28,8 @@ const {
   EDIT_PRODUCTS_SUCCESS,
   EDIT_PRODUCTS_ERROR,
   LIKE_PRODUCTS_SUCCESS,
+  ADD_COMMENT_SUCCESS,
+  GET_PRODUCTS_BY_ID_DETAILS_SUCCESS
 } = PRODUCTS_ACTION;
 
 const productsReducer = (state = initialState, action) => {
@@ -98,17 +101,26 @@ const productsReducer = (state = initialState, action) => {
         },
       };
     }
-    // case DELETE_PRODUCTS_SUCCESS: {
-    //   return {
-    //     ...state,
-    //     products: {
-    //       ...state.products,
-    //       data: state.products.data.filter(
-    //         (product) => product.id != action.payload
-    //       ),
-    //     },
-    //   };
-    // }
+    case GET_PRODUCTS_BY_ID_DETAILS_SUCCESS: {
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          currentProduct: action.payload,
+        },
+      };
+    }
+    case DELETE_PRODUCTS_SUCCESS: {
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          data: state.products.data.filter(
+            (product) => product.id != action.payload
+          ),
+        },
+      };
+    }
     case DELETE_PRODUCTS_ERROR: {
       return {
         ...state,
@@ -163,6 +175,17 @@ const productsReducer = (state = initialState, action) => {
         },
       };
     }
+    case ADD_COMMENT_SUCCESS: {
+      return {
+        ...state,
+        products: {
+          ...state.products.data,
+          data: state.products.data.map((product) =>
+            product.id == action.payload.id ? action.payload : product
+          ),
+        },
+      }
+    }
   }
 };
 
@@ -202,17 +225,27 @@ export const useProductsRequests = (productsDispatch) => {
     }
   };
 
-  const getProductsByIdRequest = async (id) => {
+  const getProductsByIdRequest = async (id, details = false) => {
     try {
       const res = await axios(`${API_URL}/${PRODUCTS}/${id}`);
 
       const { data } = res;
 
-      implementSuccessWithAction(
-        productsDispatch,
-        GET_PRODUCTS_BY_ID_SUCCESS,
-        data
-      );
+      if (details) {
+        implementSuccessWithAction(
+          productsDispatch,
+          GET_PRODUCTS_BY_ID_DETAILS_SUCCESS,
+          data
+        );
+      } else {
+        implementSuccessWithAction(
+          productsDispatch,
+          GET_PRODUCTS_BY_ID_SUCCESS,
+          data
+        );
+      }
+
+      
     } catch (error) {
       implementErrorWithAction(productsDispatch, GET_PRODUCTS_ERROR, error);
       toast.error("Неизвестная ошибка с сервера");
@@ -289,6 +322,21 @@ export const useProductsRequests = (productsDispatch) => {
     }
   };
 
+
+  const addCommentInProduct = async (productId, oldComments, newComment, onSuccess) => {
+
+    try {
+      const newCommentList = [...oldComments, newComment]
+
+      const { data } = await axios.patch(`${API_URL}/${PRODUCTS}/${productId}`, { comments: newCommentList })
+      implementSuccessWithAction(productsDispatch, ADD_COMMENT_SUCCESS, data);
+      onSuccess()
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
   return {
     getProductsRequest,
     createProduct,
@@ -296,6 +344,7 @@ export const useProductsRequests = (productsDispatch) => {
     editProduct,
     getProductsByIdRequest,
     userHandleLikeProductRequest,
+    addCommentInProduct
   };
 };
 
