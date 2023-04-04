@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import {
   DropdownWrapper,
@@ -7,8 +7,10 @@ import {
   DropdownOption,
   DropdownLinkOption,
 } from "./styled";
+import { useOnClickOutside } from "../../../hooks/useOnClickOutside";
 
 const AppDropdown = ({ options, icon }) => {
+  const dropdownRef = useRef()
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = (event) => {
@@ -17,6 +19,9 @@ const AppDropdown = ({ options, icon }) => {
     setIsOpen(!isOpen);
   };
 
+  useOnClickOutside(dropdownRef, () => {
+    setIsOpen(false)
+  })
 
   const handleItemClick = (event, option) => {
     event.stopPropagation()
@@ -25,7 +30,7 @@ const AppDropdown = ({ options, icon }) => {
   }
 
   return (
-    <DropdownWrapper>
+    <DropdownWrapper ref={dropdownRef}>
       <DropdownIcon onClick={toggleDropdown}>{icon}</DropdownIcon>
       {isOpen && (
         <DropdownOptions>

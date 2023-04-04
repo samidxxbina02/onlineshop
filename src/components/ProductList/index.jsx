@@ -1,16 +1,11 @@
 import { Box } from "@mui/joy";
-import React, { useContext, useEffect } from "react";
-import { StoreContext } from "../../context/store/StoreContext";
+import React, { useContext } from "react";
 import ProductCard from "../ProductCard";
 import ProductSkeletons from "../ProductSkeletons";
+import { AuthContext } from "../../context/auth/AuthContext";
 
-const ProductList = () => {
-  const { getProductsRequest, products, productsPending } =
-    useContext(StoreContext);
-
-  useEffect(() => {
-    getProductsRequest();
-  }, []);
+const ProductList = ({ products = [], productsPending = false }) => {
+  const { userLikes } = useContext(AuthContext)
 
   return (
     <Box
@@ -26,19 +21,8 @@ const ProductList = () => {
         <ProductSkeletons />
       ) : products?.length ? (
         products.map((product) => {
-          const { id, title, description, img, price, likes } = product;
-
-          return (
-            <ProductCard
-              key={id}
-              title={title}
-              description={description}
-              img={img}
-              price={price}
-              likes={likes}
-              id={id}
-            />
-          );
+          const userIsLike = userLikes?.some(productIsLikeId => productIsLikeId == product.id)
+          return <ProductCard key={product.id} product={product} userIsLike={userIsLike}/>;
         })
       ) : (
         <div>Продуктов нету пока что</div>

@@ -18,28 +18,7 @@ const leftSideIconsData = [
   },
 ];
 
-const navigationData = [
-    {
-        as: 'Главная',
-        href:'/'
-    },
-    {
-        as:'Добавить товар',
-        href:'/admin'
-    },
-    {
-        as:'О нас',
-        href:'/about'
-    },
-   
-    {
-        as:'Связаться с нами',
-        href:'/contacts'
-    },
-];
-
 
 export {
-    leftSideIconsData,
-    navigationData
+    leftSideIconsData
 }

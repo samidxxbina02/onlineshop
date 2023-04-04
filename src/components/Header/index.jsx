@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { leftSideIconsData, navigationData } from "./helpers";
+import React, { useContext, useState } from "react";
+import { leftSideIconsData } from "./helpers";
 import { StyledHeader } from "./styled";
 import "./Header.css";
 import AppDropdown from "../UI/AppDropdown/AppDropdown";
@@ -8,13 +8,42 @@ import LiveSearch from "../LiveSearch";
 
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/auth/AuthContext";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const { isAuth } = useContext(AuthContext)
+
   const [searchActive, setSearchActive] = useState(false);
 
   const handleSearchIcon = () => {
     setSearchActive((prev) => !prev);
   };
+
+  const navigationData = [
+    {
+        as: 'Главная',
+        href:'/',
+        admin: true
+    },
+    {
+        as:'Добавить товар',
+        href:'/admin',
+        admin: JSON.parse(localStorage.getItem('user'))?.admin
+    },
+    {
+        as:'О нас',
+        href:'/about',
+        admin: true
+    },
+   
+    {
+        as:'Связаться с нами',
+        href:'/contacts',
+        admin: true
+    },
+].filter(nav => !!nav.admin);
 
   return (
     <StyledHeader.Container>
@@ -39,9 +68,11 @@ const Header = () => {
             sx={{ color: "white" }}
             fontSize="large"
           />
-          <StyledHeader.IconLink href="/cart">
+          {isAuth && (
+            <StyledHeader.IconLink onClick={() => navigate("/shoppingCart")}>
               <ShoppingCartIcon sx={{ color: "white" }} fontSize="large" />
             </StyledHeader.IconLink>
+          )}
           <AuthHeader />
         </StyledHeader.RightSideWrapper>
       </StyledHeader.Top>

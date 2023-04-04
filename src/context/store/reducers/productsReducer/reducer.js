@@ -4,11 +4,17 @@ import { initialState } from "../../initialState";
 import { defaultGetProductsParams } from "./const";
 import { PRODUCTS_ACTION } from "./const";
 import { API_URL, API } from "../../const";
-import { implementErrorWithAction, implementPendingWithAction, implementSuccessWithAction } from "../../helpers";
+import {
+  implementErrorWithAction,
+  implementPendingWithAction,
+  implementSuccessWithAction,
+} from "../../helpers";
+import { useSearchParams } from "react-router-dom";
 
 const { PRODUCTS } = API;
 const {
   GET_PRODUCTS_SUCCESS,
+  GET_PRODUCTS_BY_ID_SUCCESS,
   GET_PRODUCTS_PENDING,
   GET_PRODUCTS_ERROR,
   SET_PRODUCTS_COUNT,
@@ -18,8 +24,10 @@ const {
   DELETE_PRODUCTS_SUCCESS,
   DELETE_PRODUCTS_PENDING,
   DELETE_PRODUCTS_ERROR,
+  EDIT_PRODUCTS_SUCCESS,
+  EDIT_PRODUCTS_ERROR,
+  LIKE_PRODUCTS_SUCCESS,
 } = PRODUCTS_ACTION;
-
 
 const productsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -90,60 +98,144 @@ const productsReducer = (state = initialState, action) => {
         },
       };
     }
-    case  DELETE_PRODUCTS_SUCCESS: {
-      return{
+    // case DELETE_PRODUCTS_SUCCESS: {
+    //   return {
+    //     ...state,
+    //     products: {
+    //       ...state.products,
+    //       data: state.products.data.filter(
+    //         (product) => product.id != action.payload
+    //       ),
+    //     },
+    //   };
+    // }
+    case DELETE_PRODUCTS_ERROR: {
+      return {
         ...state,
-        products:{
+        products: {
           ...state.products,
-          data: state.products.data.filter((product) => product.id != action.payload )
-        }
-      }
+          error: action.payload,
+        },
+      };
     }
-    case  DELETE_PRODUCTS_ERROR: {
-      return{
+
+    case EDIT_PRODUCTS_SUCCESS: {
+      console.log(action.payload);
+      return {
         ...state,
-        products:{
+        products: {
+          ...state.products.data,
+          data: state.products.data.map((product) =>
+            product.id == action.payload.id ? action.payload : product
+          ),
+        },
+      };
+    }
+
+    case EDIT_PRODUCTS_ERROR: {
+      return {
+        ...state,
+        products: {
           ...state.products,
-          error: action.payload
-        }
-      }
+          error: action.payload,
+        },
+      };
+    }
+
+    case GET_PRODUCTS_BY_ID_SUCCESS: {
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          editedProduct: action.payload,
+        },
+      };
+    }
+
+    case LIKE_PRODUCTS_SUCCESS: {
+      return {
+        ...state,
+        products: {
+          ...state.products.data,
+          data: state.products.data.map((product) =>
+            product.id == action.payload.id ? action.payload : product
+          ),
+        },
+      };
     }
   }
 };
 
+const filtersField = "type";
+
 export const useProductsRequests = (productsDispatch) => {
+  const filters = useSearchParams()[0].get(filtersField);
+
   const getProductsRequest = async (params = defaultGetProductsParams) => {
     try {
-      implementPendingWithAction(productsDispatch, GET_PRODUCTS_PENDING)
+      implementPendingWithAction(productsDispatch, GET_PRODUCTS_PENDING);
 
       const query = new URLSearchParams(params);
+      if (filters) {
+        query.set("type", filters);
+      }
       const res = await axios(`${API_URL}/${PRODUCTS}?${query}`);
 
       const { data } = res;
 
-      implementSuccessWithAction(productsDispatch, SET_PRODUCTS_COUNT, res.headers["x-total-count"])
+      implementSuccessWithAction(
+        productsDispatch,
+        SET_PRODUCTS_COUNT,
+        res.headers["x-total-count"]
+      );
 
       setTimeout(() => {
-        implementSuccessWithAction(productsDispatch, GET_PRODUCTS_SUCCESS, data)
+        implementSuccessWithAction(
+          productsDispatch,
+          GET_PRODUCTS_SUCCESS,
+          data
+        );
       }, 500);
     } catch (error) {
-      implementErrorWithAction(productsDispatch, GET_PRODUCTS_ERROR, error)
+      implementErrorWithAction(productsDispatch, GET_PRODUCTS_ERROR, error);
       toast.error("Неизвестная ошибка с сервера");
     }
   };
 
-  const createProduct = async (newProduct) => {
+  const getProductsByIdRequest = async (id) => {
     try {
-      implementPendingWithAction(productsDispatch, CREATE_PRODUCTS_PENDING)
-   
+      const res = await axios(`${API_URL}/${PRODUCTS}/${id}`);
+
+      const { data } = res;
+
+      implementSuccessWithAction(
+        productsDispatch,
+        GET_PRODUCTS_BY_ID_SUCCESS,
+        data
+      );
+    } catch (error) {
+      implementErrorWithAction(productsDispatch, GET_PRODUCTS_ERROR, error);
+      toast.error("Неизвестная ошибка с сервера");
+    }
+  };
+
+  const createProduct = async (newProduct, onSuccess) => {
+    try {
+      implementPendingWithAction(productsDispatch, CREATE_PRODUCTS_PENDING);
+
       const { data } = await axios.post(`${API_URL}/${PRODUCTS}`, newProduct);
 
       setTimeout(() => {
-        implementSuccessWithAction(productsDispatch, CREATE_PRODUCTS_SUCCESS, data)
+        implementSuccessWithAction(
+          productsDispatch,
+          CREATE_PRODUCTS_SUCCESS,
+          data
+        );
         toast.success("Продукт добавлен");
+        onSuccess();
       }, 1500);
     } catch (error) {
-      implementErrorWithAction(productsDispatch, CREATE_PRODUCTS_ERROR, error)
+      implementErrorWithAction(productsDispatch, CREATE_PRODUCTS_ERROR, error);
       toast.error("Неизвестная ошибка с сервера");
     }
   };
@@ -152,16 +244,48 @@ export const useProductsRequests = (productsDispatch) => {
     try {
       await axios.delete(`${API_URL}/${PRODUCTS}/${id}`);
 
-      implementSuccessWithAction(productsDispatch, DELETE_PRODUCTS_SUCCESS, id)
-      const searchParams = new URLSearchParams(document.location.search)
-      const page = searchParams.get('_page')
+      implementSuccessWithAction(productsDispatch, DELETE_PRODUCTS_SUCCESS, id);
+      const searchParams = new URLSearchParams(document.location.search);
+      const page = searchParams.get("_page");
 
-      getProductsRequest({ _page: page, _limit: 8 })
+      getProductsRequest({ _page: page, _limit: 8 });
       toast.success("Товар удален");
-
     } catch (error) {
-      implementErrorWithAction(productsDispatch, DELETE_PRODUCTS_ERROR, error)
+      implementErrorWithAction(productsDispatch, DELETE_PRODUCTS_ERROR, error);
       toast.error("Не получилось удалить товар");
+    }
+  };
+
+  const editProduct = async (editedProduct, id, onSuccess) => {
+    try {
+      const { data } = await axios.patch(
+        `${API_URL}/${PRODUCTS}/${id}`,
+        editedProduct
+      );
+      onSuccess();
+      implementSuccessWithAction(productsDispatch, EDIT_PRODUCTS_SUCCESS, data);
+      toast.success("Товар изменен");
+    } catch (error) {
+      implementErrorWithAction(productsDispatch, EDIT_PRODUCTS_ERROR, error);
+      toast.error("Не удалось изменить товар");
+    }
+  };
+
+  const userHandleLikeProductRequest = async (product, unLike = false) => {
+    try {
+      const likeCount = !unLike ? product.likes + 1 : product.likes - 1 
+
+      console.log(likeCount)
+
+      const { data } = await axios.patch(
+        `${API_URL}/${PRODUCTS}/${product.id}`,
+        { likes: likeCount }
+      );
+
+      implementSuccessWithAction(productsDispatch, LIKE_PRODUCTS_SUCCESS, data);
+      toast.success("Вы поставили лайк!)");
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -169,6 +293,9 @@ export const useProductsRequests = (productsDispatch) => {
     getProductsRequest,
     createProduct,
     deleteProduct,
+    editProduct,
+    getProductsByIdRequest,
+    userHandleLikeProductRequest,
   };
 };
 

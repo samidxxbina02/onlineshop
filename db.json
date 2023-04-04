@@ -1,74 +1,45 @@
 {
   "products": [
     {
-      "description": "qwe",
-      "title": "asd",
-      "img": "",
-      "price": "234",
-      "likes": 1456,
+      "description": ";L,SAD;L,;ASLD,;LAD,",
+      "title": "Sho",
+      "img": ";L,DA;LS,;L,AS;LD,;ALS,D",
+      "price": "123123",
+      "type": "shoes",
+      "likes": 4,
       "comments": [],
-      "id": 8
-    },
-    {
-      "description": "Details: Material: Polyester SIZE(IN) Bust Waist Hip Length S 33.1 26.0 35.0 54.3 M 35.0 28.0 37.0 54.7 L 36.6 29.9 39.0 55.1 XL 38.6 31.9 40.9 55.5",
-      "title": "Minimalism Wide Leg Slip Jumpsuits",
-      "img": "https://i.pinimg.com/236x/1b/5a/a8/1b5aa8c9bdefde62c240b9e24c3dd8cc.jpg",
-      "price": "2000",
-      "likes": 0,
-      "comments": [],
-      "id": 10
-    },
-    {
-      "description": "dfgbhjmk,.l;/",
-      "title": "fvgbhnj,k.l;",
-      "img": "https://i.pinimg.com/564x/a0/c2/ab/a0c2abae0a3ead937257907e8325e12d.jpg",
-      "price": "1500",
-      "likes": 0,
-      "comments": [],
-      "id": 11
-    },
-    {
-      "description": "qwe",
-      "title": "asd",
-      "img": "asd",
-      "price": "",
-      "likes": 0,
-      "comments": [],
-      "id": 12
-    },
-    {
-      "description": "dfgbhjmk,.l;/",
-      "title": "fvgbhnj,k.l;",
-      "img": "https://i.pinimg.com/564x/a0/c2/ab/a0c2abae0a3ead937257907e8325e12d.jpg",
-      "price": "1500",
-      "likes": 0,
-      "comments": [],
-      "id": 14
-    },
-    {
-      "description": "dfgbhjmk,.l;/",
-      "title": "fvgbhnj,k.l;",
-      "img": "https://i.pinimg.com/564x/a0/c2/ab/a0c2abae0a3ead937257907e8325e12d.jpg",
-      "price": "1500",
-      "likes": 0,
-      "comments": [],
-      "id": 16
-    },
-    {
-      "description": "dfgbhjmk,.l;/",
-      "title": "fvgbhnj,k.l;",
-      "img": "https://i.pinimg.com/564x/a0/c2/ab/a0c2abae0a3ead937257907e8325e12d.jpg",
-      "price": "1500",
-      "likes": 0,
-      "comments": [],
-      "id": 18
+      "id": 1
     }
   ],
   "users": [
     {
+      "email": "samidinova@gmail.com",
+      "admin": true,
+      "password": "$2a$10$1cfrIOG8UfKEmuM1PzfmyeVyv0jBZ1M5/jpFABbzOyJVCqOE3iYbi",
+      "userImportantList": [],
+      "likedList": [
+        1
+      ],
+      "id": 1,
+      "likes": []
+    },
+    {
+      "email": "asdasd@gmail.com",
+      "password": "$2a$10$90.s25DhXGJLjs9N1sAjeOvKRjQu69h8M4ah.X4jUN5knKQGnK4ia",
+      "userImportantList": [],
+      "likedList": [
+        1
+      ],
+      "id": 2
+    },
+    {
       "email": "samidinova122002@gmail.com",
-      "password": "$2a$10$AoZwty4rIP6bV3tu57saj.ekRURXqVo2ivCXirCSF0m6hyFsny.JS",
-      "id": 1
+      "password": "$2a$10$8gMwNcFOBoi3iAKX/i.hb.elMOpepiZXb.dNplTCgZdq.wjFHSTWq",
+      "userImportantList": [],
+      "likedList": [
+        1
+      ],
+      "id": 3
     }
   ]
 }

@@ -10,10 +10,12 @@ const MainLayout = () => {
             <Header />
             <div
                 style={{
-                    display: 'flex'
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center'
                 }}
             >
-                {/* <Sidebar /> */}
+                <Sidebar />
                 <Outlet />
             </div>
             <Footer />

@@ -3,6 +3,7 @@ export const initialFormState = {
   title: '',
   img: '',
   price: '',
+  type: 'shoes'
 };
 
 export const extraFields = {
