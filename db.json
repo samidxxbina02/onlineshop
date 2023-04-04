@@ -7,18 +7,63 @@
       "price": "123123",
       "type": "shoes",
       "likes": 4,
-      "comments": [],
+      "comments": [
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [],
+            "likedList": [
+              1
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "Hello ",
+          "date": "5.04.2023"
+        },
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [],
+            "likedList": [
+              1
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "Fine",
+          "date": "5.04.2023"
+        },
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [],
+            "likedList": [
+              1
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "Good ",
+          "date": "5.04.2023"
+        },
+        {
+          "user": {
+            "email": "asdasd@gmail.com",
+            "userImportantList": [],
+            "likedList": [
+              1
+            ],
+            "id": 2
+          },
+          "comment": "Bitch",
+          "date": "5.04.2023"
+        }
+      ],
       "id": 1
-    },
-    {
-      "description": "lkm",
-      "title": "qwe",
-      "img": "lm",
-      "price": "234",
-      "type": "shoes",
-      "likes": 0,
-      "comments": [],
-      "id": 2
     },
     {
       "description": "",
@@ -29,6 +74,26 @@
       "likes": 0,
       "comments": [],
       "id": 3
+    },
+    {
+      "description": "World",
+      "title": "Helllo",
+      "img": "My name is",
+      "price": "123",
+      "type": "shoes",
+      "likes": 0,
+      "comments": [],
+      "id": 4
+    },
+    {
+      "description": "Продаю б/у",
+      "title": "Машинка",
+      "img": "https://img3.akspic.ru/crops/6/5/8/9/6/169856/169856-bmw-bajerishe_motoren_verke_ag-legkovyye_avtomobili-bmw_i8-bmw_m-720x1280.jpg",
+      "price": "10000",
+      "type": "shoes",
+      "likes": 0,
+      "comments": [],
+      "id": 5
     }
   ],
   "users": [

@@ -1,14 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import AppInput from '../UI/AppInput/AppInput';
 import { StyledLiveSearch } from './styled';
 import { useDebounce } from '../../hooks/useDebounce';
 import { StoreContext } from '../../context/store/StoreContext';
+import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 
 const inpWidth = 300
 
-const LiveSearch = ({ searchActive }) => {
+const LiveSearch = ({ searchActive, setSearchActive }) => {
     const { getProductsRequest } = useContext(StoreContext)
     const [search, setSearch] = useState('')
+    const searchRef = useRef()
+
+    useOnClickOutside(searchRef, () => setSearchActive(false))
 
     const handleSearch = (event) => {
         setSearch(event.target.value)
@@ -29,7 +33,7 @@ const LiveSearch = ({ searchActive }) => {
       );
 
     return (
-        <StyledLiveSearch.Wrapper searchActive={searchActive} inpWidth={inpWidth}>
+        <StyledLiveSearch.Wrapper ref={searchRef} searchActive={searchActive} inpWidth={inpWidth}>
             <AppInput 
                 onChange={handleSearch}
                 placeholder='Давайте вместе найдем что вы искали'

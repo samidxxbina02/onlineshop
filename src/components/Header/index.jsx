@@ -17,6 +17,7 @@ const Header = () => {
 
   const [searchActive, setSearchActive] = useState(false);
 
+
   const handleSearchIcon = () => {
     setSearchActive((prev) => !prev);
   };
@@ -62,7 +63,7 @@ const Header = () => {
           <StyledHeader.Logo>PARIS</StyledHeader.Logo>
         </StyledHeader.LogoWrapper>
         <StyledHeader.RightSideWrapper>
-          <LiveSearch searchActive={searchActive} />
+          <LiveSearch setSearchActive={setSearchActive} searchActive={searchActive} />
           <SearchIcon
             onClick={handleSearchIcon}
             sx={{ color: "white" }}
