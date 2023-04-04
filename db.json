@@ -9,6 +9,26 @@
       "likes": 4,
       "comments": [],
       "id": 1
+    },
+    {
+      "description": "lkm",
+      "title": "qwe",
+      "img": "lm",
+      "price": "234",
+      "type": "shoes",
+      "likes": 0,
+      "comments": [],
+      "id": 2
+    },
+    {
+      "description": "",
+      "title": "",
+      "img": "",
+      "price": "",
+      "type": "shoes",
+      "likes": 0,
+      "comments": [],
+      "id": 3
     }
   ],
   "users": [
