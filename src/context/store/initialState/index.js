@@ -5,10 +5,6 @@ export const initialState = {
       error: null,
       createPending: false,
       totalCount: 0,
-    },
-    user: {
-      pending: false,
-      data: {},
-      error: null,
-    },
+      editedProduct: {}
+    }
   };

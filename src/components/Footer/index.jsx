@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <MDBFooter className='text-center' color='white' bgColor='black'>
       <MDBContainer className='p-4'>
-        <section className='mb-4'>
+        {/* <section className='mb-4'>
           <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
             <MDBIcon fab icon='facebook-f' />
           </MDBBtn>
@@ -37,7 +37,7 @@ const Footer = () => {
           <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
             <MDBIcon fab icon='github' />
           </MDBBtn>
-        </section>
+        </section> */}
 
         <section className=''>
           <form action=''>
@@ -184,8 +184,8 @@ const Footer = () => {
 
       <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
         © 2020 Copyright:
-        <a className='text-white' href='https://mdbootstrap.com/'>
-          MDBootstrap.com
+        <a className='text-white' href='https://emea.blvck.com//'>
+          BLVCKparis.com
         </a>
       </div>
     </MDBFooter>

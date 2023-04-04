@@ -1,0 +1,57 @@
+
+
+.pay_form > input {
+  border: 2px solid black;
+  width: 400px;
+  background-color: white;
+  border-radius: 50px;
+}
+
+.pay_form > input:hover{
+  border: 3px solid gold;
+  background-color: white;
+  
+}
+
+.pay_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10% 40%;
+}
+
+.pay_form img{
+  margin-bottom: 10%;
+  width: 800px;
+  height: 500px;
+  position:relative
+}
+
+.input1{
+ position: absolute;
+ width:40%;
+ height: 7%;
+ font-size: 40px;
+ top:91%
+}
+
+.input2{
+  position: absolute;
+  width: 10%;
+  height: 6%;
+  top:85%
+}
+
+.input3{
+  position: absolute;
+  width:40%;
+  height: 8%;
+  top: 75%
+}
+
+.input4{
+  width: 200px;
+  height: 50px;
+}
+

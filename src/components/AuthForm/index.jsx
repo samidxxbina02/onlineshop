@@ -9,11 +9,13 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { StoreContext } from "../../context/store/StoreContext";
+import { AuthContext } from "../../context/auth/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const AuthForm = () => {
-  const [hasAccount, setHasAccount] = useState(false)
-  const { registerUser, loginUser } = useContext(StoreContext);
+  const navigate = useNavigate();
+  const [hasAccount, setHasAccount] = useState(false);
+  const { registerRequest, loginRequest } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,16 +27,23 @@ const AuthForm = () => {
     const userData = {
       email: data.get("email"),
       password: data.get("password"),
+      userImportantList: [],
+      likedList: [],
     };
 
-    if(hasAccount) {
-      loginUser(userData)
+    if (hasAccount) {
+      loginRequest(userData, () => {
+        navigate("/");
+        setEmail("");
+        setPassword("");
+      });
     } else {
-      registerUser(userData)
+      registerRequest(userData, () => {
+        navigate("/");
+        setEmail("");
+        setPassword("");
+      });
     }
-
-    setEmail('')
-    setPassword('')
   };
 
   return (
@@ -52,10 +61,7 @@ const AuthForm = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          {
-            hasAccount ? 'Login' : 'Register'
-          }
-          
+          {hasAccount ? "Login" : "Register"}
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -108,11 +114,19 @@ const AuthForm = () => {
           <Grid container>
             <Grid item>
               {hasAccount ? (
-                <Link href="#" variant="body2" onClick={() => setHasAccount(false)}>
+                <Link
+                  href="#"
+                  variant="body2"
+                  onClick={() => setHasAccount(false)}
+                >
                   {"Don't have an account? Register Now"}
                 </Link>
               ) : (
-                <Link href="#" variant="body2" onClick={() => setHasAccount(true)}>
+                <Link
+                  href="#"
+                  variant="body2"
+                  onClick={() => setHasAccount(true)}
+                >
                   {"Already have an account? Log In"}
                 </Link>
               )}

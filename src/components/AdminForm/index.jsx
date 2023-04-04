@@ -1,13 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StyledAdminForm } from "./styled";
 import AppInput from "../UI/AppInput/AppInput";
 import { StoreContext } from "../../context/store/StoreContext";
 import { extraFields, initialFormState } from "./const";
 import AppButton from "../UI/AppButton/AppButton";
+import { useNavigate } from "react-router-dom";
 
-const AdminForm = () => {
-  const { createProduct, createPending } = useContext(StoreContext);
+const AdminForm = ({ isEdit, editedProduct }) => {
+  const navigate = useNavigate()
+  const { createProduct, createPending, editProduct } = useContext(StoreContext);
+
   const [form, setForm] = useState(initialFormState);
+
+ 
+  useEffect(() => {
+    if(isEdit) {
+      setForm(editedProduct)
+    }
+  }, [editedProduct])
 
   const _createProduct = () => {
     const newProduct = {
@@ -15,9 +25,18 @@ const AdminForm = () => {
       ...extraFields,
     };
 
-    createProduct(newProduct);
+    if(isEdit) {
+      editProduct(newProduct, newProduct.id, () => {
+        setForm(initialFormState);
+        navigate('/')
+      })
+    } else {
+      createProduct(newProduct, () => {
+        setForm(initialFormState);
+        navigate('/')
+      });
+    }
 
-    setForm(initialFormState);
   };
 
   const handleChange = (event) => {
@@ -29,10 +48,17 @@ const AdminForm = () => {
     }));
   };
 
+
   return (
     <StyledAdminForm.Container>
-      <StyledAdminForm.Title>Добавить новую позицию</StyledAdminForm.Title>
+      <StyledAdminForm.Title>{isEdit ? 'Изменить позицию' : 'Добавить новую позицию'}</StyledAdminForm.Title>
       <StyledAdminForm.Body>
+        <select value={form?.type} name='type' onChange={handleChange}>
+          <option>shoes</option>
+          <option>bag</option>
+          <option>dress</option>
+          <option>blazer</option>
+        </select>
         <AppInput
           placeholder="Title"
           variant="soft"
@@ -67,7 +93,7 @@ const AdminForm = () => {
           loading={createPending}
           size="lg"
           onClick={_createProduct}
-          title="Add Product"
+          title={isEdit ? "Edit Product" : "Add Product"}
         />
       </StyledAdminForm.Body>
     </StyledAdminForm.Container>
