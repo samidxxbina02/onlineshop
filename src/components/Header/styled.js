@@ -5,6 +5,10 @@ export const StyledHeader = {
   Container: styled.div`
     background-color: black;
     height: 150px;
+
+     @media screen and (max-width:426px){
+       width: 550px; 
+    } 
   `,
   LeftSideWrapper: styled.ul`
     display: flex;

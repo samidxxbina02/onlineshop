@@ -12,9 +12,8 @@ const ProductList = ({ products = [], productsPending = false }) => {
       sx={{
         display: "flex",
         flexWrap: "wrap",
+        justifyContent: 'center',
         gap: "20px",
-        justifyContent: "space-between",
-        padding: "20px 40px",
       }}
     >
       {productsPending ? (

@@ -33,11 +33,6 @@ const Header = () => {
         href:'/admin',
         admin: JSON.parse(localStorage.getItem('user'))?.admin
     },
-    {
-        as:'О нас',
-        href:'/about',
-        admin: true
-    },
    
     {
         as:'Связаться с нами',

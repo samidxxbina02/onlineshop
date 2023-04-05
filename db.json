@@ -1,12 +1,12 @@
 {
   "products": [
     {
-      "description": ";L,SAD;L,;ASLD,;LAD,",
-      "title": "Sho",
-      "img": ";L,DA;LS,;L,AS;LD,;ALS,D",
-      "price": "123123",
-      "type": "shoes",
-      "likes": 4,
+      "description": "Белое платье с открытыми плечами",
+      "title": "Dress",
+      "img": "https://i.pinimg.com/564x/e8/f9/af/e8f9af0e48167a4f88fa47fbb45c696b.jpg",
+      "price": "1000",
+      "type": "dress",
+      "likes": 2,
       "comments": [
         {
           "user": {
@@ -19,81 +19,549 @@
             "id": 1,
             "likes": []
           },
-          "comment": "Hello ",
-          "date": "5.04.2023"
-        },
-        {
-          "user": {
-            "email": "samidinova@gmail.com",
-            "admin": true,
-            "userImportantList": [],
-            "likedList": [
-              1
-            ],
-            "id": 1,
-            "likes": []
-          },
-          "comment": "Fine",
-          "date": "5.04.2023"
-        },
-        {
-          "user": {
-            "email": "samidinova@gmail.com",
-            "admin": true,
-            "userImportantList": [],
-            "likedList": [
-              1
-            ],
-            "id": 1,
-            "likes": []
-          },
-          "comment": "Good ",
-          "date": "5.04.2023"
-        },
-        {
-          "user": {
-            "email": "asdasd@gmail.com",
-            "userImportantList": [],
-            "likedList": [
-              1
-            ],
-            "id": 2
-          },
-          "comment": "Bitch",
+          "comment": "очень красивое платье!!!",
           "date": "5.04.2023"
         }
       ],
-      "id": 1
+      "id": 6
     },
     {
-      "description": "",
-      "title": "",
-      "img": "",
-      "price": "",
-      "type": "shoes",
-      "likes": 0,
-      "comments": [],
-      "id": 3
+      "description": "Белая сумка среднего размера",
+      "title": "Сумка Dior ",
+      "img": "https://i.pinimg.com/564x/54/12/44/5412446feabf484a7ff6a6b5ef290211.jpg",
+      "price": "2200",
+      "type": "bag",
+      "likes": 1,
+      "comments": [
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [
+              {
+                "description": "Туфли на высокой платформе ,в черном цвете ,с золотыми вставками",
+                "title": "Vesace",
+                "img": "https://i.pinimg.com/564x/59/91/d0/5991d00fd0c53fe952b6d09a9bddca7c.jpg",
+                "price": "2100",
+                "type": "shoes",
+                "likes": 0,
+                "comments": [
+                  {
+                    "user": {
+                      "email": "samidinova@gmail.com",
+                      "admin": true,
+                      "userImportantList": [],
+                      "likedList": [
+                        1
+                      ],
+                      "id": 1,
+                      "likes": []
+                    },
+                    "comment": "Шикарные туфли",
+                    "date": "5.04.2023"
+                  }
+                ],
+                "id": 7
+              }
+            ],
+            "likedList": [
+              1,
+              6,
+              5,
+              10,
+              9,
+              14,
+              13,
+              11,
+              7
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "вааааау",
+          "date": "5.04.2023"
+        },
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [
+              {
+                "description": "Туфли на высокой платформе ,в черном цвете ,с золотыми вставками",
+                "title": "Vesace",
+                "img": "https://i.pinimg.com/564x/59/91/d0/5991d00fd0c53fe952b6d09a9bddca7c.jpg",
+                "price": "2100",
+                "type": "shoes",
+                "likes": 0,
+                "comments": [
+                  {
+                    "user": {
+                      "email": "samidinova@gmail.com",
+                      "admin": true,
+                      "userImportantList": [],
+                      "likedList": [
+                        1
+                      ],
+                      "id": 1,
+                      "likes": []
+                    },
+                    "comment": "Шикарные туфли",
+                    "date": "5.04.2023"
+                  }
+                ],
+                "id": 7
+              }
+            ],
+            "likedList": [
+              1,
+              6,
+              5,
+              10,
+              9,
+              14,
+              13,
+              11,
+              7
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "ыва",
+          "date": "5.04.2023"
+        },
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [
+              {
+                "description": "Туфли на высокой платформе ,в черном цвете ,с золотыми вставками",
+                "title": "Vesace",
+                "img": "https://i.pinimg.com/564x/59/91/d0/5991d00fd0c53fe952b6d09a9bddca7c.jpg",
+                "price": "2100",
+                "type": "shoes",
+                "likes": 0,
+                "comments": [
+                  {
+                    "user": {
+                      "email": "samidinova@gmail.com",
+                      "admin": true,
+                      "userImportantList": [],
+                      "likedList": [
+                        1
+                      ],
+                      "id": 1,
+                      "likes": []
+                    },
+                    "comment": "Шикарные туфли",
+                    "date": "5.04.2023"
+                  }
+                ],
+                "id": 7
+              }
+            ],
+            "likedList": [
+              1,
+              6,
+              5,
+              10,
+              9,
+              14,
+              13,
+              11,
+              7
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "ыва",
+          "date": "5.04.2023"
+        },
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [
+              {
+                "description": "Туфли на высокой платформе ,в черном цвете ,с золотыми вставками",
+                "title": "Vesace",
+                "img": "https://i.pinimg.com/564x/59/91/d0/5991d00fd0c53fe952b6d09a9bddca7c.jpg",
+                "price": "2100",
+                "type": "shoes",
+                "likes": 0,
+                "comments": [
+                  {
+                    "user": {
+                      "email": "samidinova@gmail.com",
+                      "admin": true,
+                      "userImportantList": [],
+                      "likedList": [
+                        1
+                      ],
+                      "id": 1,
+                      "likes": []
+                    },
+                    "comment": "Шикарные туфли",
+                    "date": "5.04.2023"
+                  }
+                ],
+                "id": 7
+              }
+            ],
+            "likedList": [
+              1,
+              6,
+              5,
+              10,
+              9,
+              14,
+              13,
+              11,
+              7
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "цук",
+          "date": "5.04.2023"
+        },
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [
+              {
+                "description": "Туфли на высокой платформе ,в черном цвете ,с золотыми вставками",
+                "title": "Vesace",
+                "img": "https://i.pinimg.com/564x/59/91/d0/5991d00fd0c53fe952b6d09a9bddca7c.jpg",
+                "price": "2100",
+                "type": "shoes",
+                "likes": 0,
+                "comments": [
+                  {
+                    "user": {
+                      "email": "samidinova@gmail.com",
+                      "admin": true,
+                      "userImportantList": [],
+                      "likedList": [
+                        1
+                      ],
+                      "id": 1,
+                      "likes": []
+                    },
+                    "comment": "Шикарные туфли",
+                    "date": "5.04.2023"
+                  }
+                ],
+                "id": 7
+              }
+            ],
+            "likedList": [
+              1,
+              6,
+              5,
+              10,
+              9,
+              14,
+              13,
+              11,
+              7
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "цук",
+          "date": "5.04.2023"
+        },
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [
+              {
+                "description": "Туфли на высокой платформе ,в черном цвете ,с золотыми вставками",
+                "title": "Vesace",
+                "img": "https://i.pinimg.com/564x/59/91/d0/5991d00fd0c53fe952b6d09a9bddca7c.jpg",
+                "price": "2100",
+                "type": "shoes",
+                "likes": 0,
+                "comments": [
+                  {
+                    "user": {
+                      "email": "samidinova@gmail.com",
+                      "admin": true,
+                      "userImportantList": [],
+                      "likedList": [
+                        1
+                      ],
+                      "id": 1,
+                      "likes": []
+                    },
+                    "comment": "Шикарные туфли",
+                    "date": "5.04.2023"
+                  }
+                ],
+                "id": 7
+              }
+            ],
+            "likedList": [
+              1,
+              6,
+              5,
+              10,
+              9,
+              14,
+              13,
+              11,
+              7
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "ыва",
+          "date": "5.04.2023"
+        },
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [
+              {
+                "description": "Туфли на высокой платформе ,в черном цвете ,с золотыми вставками",
+                "title": "Vesace",
+                "img": "https://i.pinimg.com/564x/59/91/d0/5991d00fd0c53fe952b6d09a9bddca7c.jpg",
+                "price": "2100",
+                "type": "shoes",
+                "likes": 0,
+                "comments": [
+                  {
+                    "user": {
+                      "email": "samidinova@gmail.com",
+                      "admin": true,
+                      "userImportantList": [],
+                      "likedList": [
+                        1
+                      ],
+                      "id": 1,
+                      "likes": []
+                    },
+                    "comment": "Шикарные туфли",
+                    "date": "5.04.2023"
+                  }
+                ],
+                "id": 7
+              }
+            ],
+            "likedList": [
+              1,
+              6,
+              5,
+              10,
+              9,
+              14,
+              13,
+              11,
+              7
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "вапва",
+          "date": "5.04.2023"
+        },
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [
+              {
+                "description": "Туфли на высокой платформе ,в черном цвете ,с золотыми вставками",
+                "title": "Vesace",
+                "img": "https://i.pinimg.com/564x/59/91/d0/5991d00fd0c53fe952b6d09a9bddca7c.jpg",
+                "price": "2100",
+                "type": "shoes",
+                "likes": 0,
+                "comments": [
+                  {
+                    "user": {
+                      "email": "samidinova@gmail.com",
+                      "admin": true,
+                      "userImportantList": [],
+                      "likedList": [
+                        1
+                      ],
+                      "id": 1,
+                      "likes": []
+                    },
+                    "comment": "Шикарные туфли",
+                    "date": "5.04.2023"
+                  }
+                ],
+                "id": 7
+              }
+            ],
+            "likedList": [
+              1,
+              6,
+              5,
+              10,
+              9,
+              14,
+              13,
+              11,
+              7
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "куеуке",
+          "date": "5.04.2023"
+        },
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [
+              {
+                "description": "Туфли на высокой платформе ,в черном цвете ,с золотыми вставками",
+                "title": "Vesace",
+                "img": "https://i.pinimg.com/564x/59/91/d0/5991d00fd0c53fe952b6d09a9bddca7c.jpg",
+                "price": "2100",
+                "type": "shoes",
+                "likes": 0,
+                "comments": [
+                  {
+                    "user": {
+                      "email": "samidinova@gmail.com",
+                      "admin": true,
+                      "userImportantList": [],
+                      "likedList": [
+                        1
+                      ],
+                      "id": 1,
+                      "likes": []
+                    },
+                    "comment": "Шикарные туфли",
+                    "date": "5.04.2023"
+                  }
+                ],
+                "id": 7
+              }
+            ],
+            "likedList": [
+              1,
+              6,
+              5,
+              10,
+              9,
+              14,
+              13,
+              11,
+              7
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "вапвап",
+          "date": "5.04.2023"
+        }
+      ],
+      "id": 8
     },
     {
-      "description": "World",
-      "title": "Helllo",
-      "img": "My name is",
-      "price": "123",
-      "type": "shoes",
-      "likes": 0,
+      "description": "Классическая черная сумка для вечерних мероприятий",
+      "title": "Сумка Prada Milano",
+      "img": "https://i.pinimg.com/564x/a7/5d/38/a75d3870af15120f5691327a57637684.jpg",
+      "price": "1800",
+      "type": "bag",
+      "likes": 2,
       "comments": [],
-      "id": 4
+      "id": 9
     },
     {
-      "description": "Продаю б/у",
-      "title": "Машинка",
-      "img": "https://img3.akspic.ru/crops/6/5/8/9/6/169856/169856-bmw-bajerishe_motoren_verke_ag-legkovyye_avtomobili-bmw_i8-bmw_m-720x1280.jpg",
-      "price": "10000",
+      "description": "короткое элегантное платье на вечер ",
+      "title": "Black dress",
+      "img": "https://i.pinimg.com/564x/a5/b9/5c/a5b95cf577b20c953336ca4f9372bf24.jpg",
+      "price": "900",
+      "type": "dress",
+      "likes": 2,
+      "comments": [],
+      "id": 10
+    },
+    {
+      "description": "Короткое платье лазурного цвета",
+      "title": "Dress",
+      "img": "https://i.pinimg.com/564x/2a/b6/cd/2ab6cde8eff5adf5bd0ec3aa64073506.jpg",
+      "price": "850",
+      "type": "dress",
+      "likes": 2,
+      "comments": [],
+      "id": 11
+    },
+    {
+      "description": "Черное платье-миди",
+      "title": "Dress",
+      "img": "https://i.pinimg.com/564x/cf/51/3b/cf513b7762843e9c7381bc11bb922109.jpg",
+      "price": "1050",
+      "type": "dress",
+      "likes": 2,
+      "comments": [],
+      "id": 13
+    },
+    {
+      "description": "Черные туфли",
+      "title": "YSL туфли",
+      "img": "https://i.pinimg.com/564x/b2/16/88/b21688520232aa5fb72197e1f129a29e.jpg",
+      "price": "1750",
       "type": "shoes",
+      "likes": 2,
+      "comments": [
+        {
+          "user": {
+            "email": "samidinova@gmail.com",
+            "admin": true,
+            "userImportantList": [],
+            "likedList": [
+              1
+            ],
+            "id": 1,
+            "likes": []
+          },
+          "comment": "Вааау",
+          "date": "5.04.2023"
+        }
+      ],
+      "id": 14
+    },
+    {
+      "description": "Сумка среднего размера",
+      "title": "Chanel",
+      "img": "https://i.pinimg.com/564x/f8/c5/18/f8c518f178daad1aff8468fd627b37f7.jpg",
+      "price": "2000",
+      "type": "bag",
       "likes": 0,
       "comments": [],
-      "id": 5
+      "id": 15
+    },
+    {
+      "description": "Черный пиджак с вырезами в классическом стиле",
+      "title": "Пиджак",
+      "img": "https://i.pinimg.com/564x/41/1b/4f/411b4fc38fb44bddb558a80af69623bd.jpg",
+      "price": "1300",
+      "type": "blazer",
+      "likes": 0,
+      "comments": [],
+      "id": 16
+    },
+    {
+      "description": "Черный  женский костюм ",
+      "title": "Костюм",
+      "img": "https://i.pinimg.com/564x/e5/79/51/e57951acd7a3e100c3ef1870eb6538df.jpg",
+      "price": "1500",
+      "type": "blazer",
+      "likes": 0,
+      "comments": [],
+      "id": 17
     }
   ],
   "users": [
@@ -103,7 +571,15 @@
       "password": "$2a$10$1cfrIOG8UfKEmuM1PzfmyeVyv0jBZ1M5/jpFABbzOyJVCqOE3iYbi",
       "userImportantList": [],
       "likedList": [
-        1
+        1,
+        5,
+        10,
+        9,
+        14,
+        13,
+        11,
+        6,
+        8
       ],
       "id": 1,
       "likes": []
@@ -118,11 +594,18 @@
       "id": 2
     },
     {
-      "email": "samidinova122002@gmail.com",
-      "password": "$2a$10$8gMwNcFOBoi3iAKX/i.hb.elMOpepiZXb.dNplTCgZdq.wjFHSTWq",
+      "email": "makers.frontend@gmail.com",
+      "password": "$2a$10$VDgP0ZtmPTEX4vIOLquiY.Q4GytfbBk/AejMFUsVK/8B7Jom6dXTW",
       "userImportantList": [],
       "likedList": [
-        1
+        6,
+        7,
+        8,
+        9,
+        14,
+        13,
+        11,
+        10
       ],
       "id": 3
     }

@@ -38,8 +38,13 @@ const Sidebar = () => {
   };
 
   useEffect(() => {
+    // Object.entries({ 
+    //   name: 'Albina',
+    //   age: 20
+    // }) = [[name, 'Albina'], [age, 20]]
+   
     const filterParams = Object.entries(filters)
-      .filter(([key, value]) => !!value)
+      .filter(([key, value]) => value)
       .map(([key]) => key)
       .join(",");
 

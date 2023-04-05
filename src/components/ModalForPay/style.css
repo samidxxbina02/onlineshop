@@ -1,15 +1,33 @@
-
-
-.pay_form > input {
-  border: 2px solid black;
-  width: 400px;
-  background-color: white;
-  border-radius: 50px;
+.pay_container{
+  display: flex;
+  padding: 10% 10%;
 }
 
-.pay_form > input:hover{
-  border: 3px solid gold;
+.address{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  gap:50px
+}
+
+.address input{
+  border: 2px solid black;
+  width:300px;
+  height: 50px;
+  font-size: 25px;
+}
+
+
+.pay_form  input {
+  border: 1px solid black;
+  
   background-color: white;
+  border-radius: 15px;
+}
+
+.pay_form  input:hover{
+  border: 3px solid gold;
+ 
   
 }
 
@@ -18,7 +36,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10% 40%;
+ 
 }
 
 .pay_form img{
@@ -32,26 +50,57 @@
  position: absolute;
  width:40%;
  height: 7%;
- font-size: 40px;
- top:91%
+ font-size: 30px;
+ top:96%
 }
 
 .input2{
   position: absolute;
   width: 10%;
   height: 6%;
-  top:85%
+  top:90%;
+  font-size: 20px ;
+  right: 32%;
 }
 
 .input3{
   position: absolute;
   width:40%;
   height: 8%;
-  top: 75%
+  top: 79%;
+  font-size: 30px;
+}
+
+.pay_wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+  margin-bottom: 200px;
+  
+}
+
+.pay_wrapper button{
+  background-color: black;
+  width:85px;
+  margin-left: 60px;
+  height: 50px;
+  color:white;
+  border-radius: 10px;
+}
+
+.pay_wrapper button:hover{
+  border: 4px solid gold;
+  
 }
 
 .input4{
   width: 200px;
   height: 50px;
+  border: 1px solid gray;
+  text-align: center;
+  font-size: 20px;
 }
 
+.input4:hover{
+  border: 2px solid black;
+}

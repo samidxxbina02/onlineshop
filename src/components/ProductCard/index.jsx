@@ -9,7 +9,7 @@ import Typography from "@mui/joy/Typography";
 import MoreHoriz from "@mui/icons-material/MoreHoriz";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ModeCommentOutlined from "@mui/icons-material/ModeCommentOutlined";
+
 import Face from "@mui/icons-material/Face";
 import AppDropdown from "../UI/AppDropdown/AppDropdown";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -133,7 +133,7 @@ export const ProductCard = ({ product, userIsLike }) => {
           <img
           onClick={handleToProductInfo}
             style={{
-              height: "500px",
+              height: "300px",
               cursor: 'pointer'
             }}
             src={
@@ -153,9 +153,6 @@ export const ProductCard = ({ product, userIsLike }) => {
                 userIsLike ? <FavoriteIcon onClick={handleUnFavorite}/>  : <FavoriteBorder onClick={handleFavorite}/>
               }
               
-            </IconButton>
-            <IconButton variant="plain" color="neutral" size="sm">
-              <ModeCommentOutlined />
             </IconButton>
           </Box>
           <Box

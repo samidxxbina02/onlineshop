@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import { UserImportantListContext } from "./UserImportantListContext";
 import axios from "axios";
 import { implementErrorWithAction, implementSuccessWithAction } from '../store/helpers';
+import { toast } from 'react-toastify';
 
 const API_URL = 'http://localhost:8080'
 
@@ -59,6 +60,7 @@ const UserImportantListProvider = ({ children }) => {
     try {
       const { data } = await axios.patch(`${API_URL}/${USERS}/${userId}`, { userImportantList: [...userImportantState.userImportantList, product] });
       implementSuccessWithAction(dispatch, ADD_TO_IMPORTANT_LIST, data.userImportantList)
+      toast.success('Вы добавили товар в корзину')
     } catch (error) {
       implementErrorWithAction(dispatch, REQUEST_ERROR, error)
     }
@@ -68,6 +70,7 @@ const UserImportantListProvider = ({ children }) => {
     try {
       const { data } = await axios.patch(`${API_URL}/${USERS}/${userId}`, { userImportantList: userImportantState.userImportantList.filter(impProduct => impProduct.id != product.id) });
       implementSuccessWithAction(dispatch, ADD_TO_IMPORTANT_LIST, data.userImportantList)
+      toast.success('Вы удалили товар из корзины')
     } catch (error) {
       implementErrorWithAction(dispatch, REQUEST_ERROR, error)
     }

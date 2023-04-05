@@ -16,8 +16,3 @@ export const PRODUCTS_ACTION = {
     GET_PRODUCTS_BY_ID_DETAILS_SUCCESS: 'GET_PRODUCTS_BY_ID_DETAILS_SUCCESS ',
     ADD_COMMENT_SUCCESS: 'ADD_COMMENT_SUCCESS'
 }
-
-export const defaultGetProductsParams = {
-    _limit: 8,
-    _page: 1,
-}

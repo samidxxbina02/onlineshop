@@ -1,7 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import { initialState } from "../../initialState";
-import { defaultGetProductsParams } from "./const";
 import { PRODUCTS_ACTION } from "./const";
 import { API_URL, API } from "../../const";
 import {
@@ -190,18 +189,25 @@ const productsReducer = (state = initialState, action) => {
 };
 
 const filtersField = "type";
+const pageField = '_page'
+const limitField = '_limit'
 
 export const useProductsRequests = (productsDispatch) => {
   const filters = useSearchParams()[0].get(filtersField);
+  const page = useSearchParams()[0].get(pageField)
 
-  const getProductsRequest = async (params = defaultGetProductsParams) => {
+  const getProductsRequest = async () => {
     try {
       implementPendingWithAction(productsDispatch, GET_PRODUCTS_PENDING);
 
-      const query = new URLSearchParams(params);
+      const query = new URLSearchParams({});
       if (filters) {
-        query.set("type", filters);
+        query.set(filtersField, filters);
       }
+
+      query.set(pageField, page || 1)
+      query.set(limitField, 8)
+
       const res = await axios(`${API_URL}/${PRODUCTS}?${query}`);
 
       const { data } = res;
@@ -316,7 +322,10 @@ export const useProductsRequests = (productsDispatch) => {
       );
 
       implementSuccessWithAction(productsDispatch, LIKE_PRODUCTS_SUCCESS, data);
-      toast.success("Вы поставили лайк!)");
+
+      if(!unLike) {
+        toast.success("Вы поставили лайк!)");
+      }
     } catch (error) {
       console.log(error);
     }

@@ -64,21 +64,21 @@ const AdminForm = ({ isEdit, editedProduct }) => {
           variant="soft"
           name="title"
           onChange={handleChange}
-          value={form.title}
+          value={form?.title}
         />
         <AppInput
           placeholder="Description"
           variant="soft"
           name="description"
           onChange={handleChange}
-          value={form.description}
+          value={form?.description}
         />
         <AppInput
           placeholder="URL - Img"
           variant="soft"
           name="img"
           onChange={handleChange}
-          value={form.img}
+          value={form?.img}
         />
         <AppInput
           placeholder="Price"
@@ -86,7 +86,7 @@ const AdminForm = ({ isEdit, editedProduct }) => {
           type="number"
           name="price"
           onChange={handleChange}
-          value={form.price}
+          value={form?.price}
         />
         <AppButton
           sx={{ display: "flex", justifyContent: "center" }}

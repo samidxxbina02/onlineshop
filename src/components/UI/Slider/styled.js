@@ -7,6 +7,10 @@ export const StyledSlider = {
         display: flex;
         max-width: 100%;
         justify-content: center;
+
+        img {
+            max-width: 100%;
+        }
     `,
     Btn: styled.button`
         color: white;

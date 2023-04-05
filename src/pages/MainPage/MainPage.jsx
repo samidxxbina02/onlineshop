@@ -19,9 +19,9 @@ const MainPage = () => {
         <ProductList products={products} productsPending={productsPending}/>
       </StyledMainPage.ProductListContainer>
       <ProductsPagination />
-      <StyledMainPage.SliderContainer>
+      {/* <StyledMainPage.SliderContainer>
         <Slider />
-      </StyledMainPage.SliderContainer>
+      </StyledMainPage.SliderContainer> */}
     </StyledMainPage.Container>
   );
 };

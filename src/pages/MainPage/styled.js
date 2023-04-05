@@ -9,8 +9,17 @@ export const StyledMainPage = {
     align-items: center;
     margin-bottom: 4rem;
     @media screen and (max-width: 768px) {
-    flex-direction: column;
+      display: flex;
+      justify-content: center;
+      flex-wrap:wrap 
+    ;
+   
+
+    @media screen and (max-width: 425px) {
+      width: 300px;
+      display: flex;
     justify-content: center;
+   
   }
   `,
   SliderContainer: styled.div`
@@ -22,7 +31,7 @@ export const StyledMainPage = {
     margin: 0 auto;
   `,
   ProductListContainer: styled.div`
-
+    margin-bottom: 30px
   }
   `,
 };

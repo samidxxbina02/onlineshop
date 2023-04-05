@@ -10,17 +10,22 @@ const ProductDetails = ({ product }) => {
 
   return (
     <StyledProductDetails.Wrapper>
-      <div>
-        <img src={img || "https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png"} />
-      </div>
-      <div>{title}</div>
-      <div>{description}</div>
-      <div>{price}</div>
-      <div>{type}</div>
+      <StyledProductDetails.ImgWrapper>
+        <StyledProductDetails.Img src={img || "https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png"} />
+      </StyledProductDetails.ImgWrapper>
+      <StyledProductDetails.ContentWrapper>
+       <StyledProductDetails.ContentTitle>Описание</StyledProductDetails.ContentTitle>
+      <StyledProductDetails.Title>{title}</StyledProductDetails.Title>
+      <StyledProductDetails.Description>{description}</StyledProductDetails.Description>
+      <div>цена:{price}$</div>
+      <div>тип:{type}</div>
       <div>Likes: {likes}</div>
+      </StyledProductDetails.ContentWrapper>
+    
 
-      <h1>COMMENTS</h1>
-      <div>
+      
+      <StyledProductDetails.CommentsWrapper>
+      <h3>Отзывы:</h3>
         {comments?.length
           ? comments.map((commentItem) => {
               const { comment, user, date } = commentItem;
@@ -45,7 +50,7 @@ const ProductDetails = ({ product }) => {
               );
             })
           : null}
-      </div>
+      </StyledProductDetails.CommentsWrapper>
     </StyledProductDetails.Wrapper>
   );
 };
